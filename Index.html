@@ -299,6 +299,19 @@ footer{background:var(--green-950);color:var(--cream-200);padding:34px 24px 26px
 .product-row{display:grid;grid-template-columns:56px 1.4fr 90px 90px 90px 80px auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--cream-100);font-size:13px;}
 .product-row img{width:44px;height:44px;object-fit:contain;background:var(--cream-100);border-radius:8px;padding:3px;}
 .product-row input, .product-row select{width:100%;border:1px solid var(--cream-200);border-radius:8px;padding:6px 8px;font-size:12.5px;font-family:inherit;}
+.pca{border:1px solid var(--cream-200);border-radius:12px;padding:14px;margin-bottom:12px;background:var(--cream-50);}
+.pca-top{display:flex;gap:12px;margin-bottom:10px;align-items:flex-start;}
+.pca-top img{width:52px;height:52px;object-fit:contain;background:#fff;border-radius:8px;padding:4px;border:1px solid var(--cream-200);flex-shrink:0;}
+.pca-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;flex:1;}
+.pca-fields .f label{display:block;font-size:10px;font-weight:800;color:var(--ink-500);text-transform:uppercase;margin-bottom:3px;letter-spacing:.03em;}
+.pca-fields .f input, .pca-fields .f select{width:100%;border:1px solid var(--cream-200);border-radius:7px;padding:6px 8px;font-size:12.5px;font-family:inherit;}
+.pca-actions{display:flex;gap:8px;margin-top:10px;justify-content:flex-end;flex-wrap:wrap;}
+.color-swatches{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 2px;}
+.color-chip{
+  border:1.5px solid var(--cream-200);background:#fff;color:var(--ink-700);
+  padding:5px 12px;border-radius:999px;font-size:11.5px;font-weight:700;
+}
+.color-chip.selected{border-color:var(--green-700);background:var(--green-700);color:#fff;}
 .mini-btn{border:none;border-radius:8px;padding:7px 10px;font-size:12px;font-weight:700;cursor:pointer;}
 .mini-btn.save{background:var(--green-700);color:#fff;}
 .mini-btn.del{background:var(--burgundy-700);color:#fff;}
@@ -351,12 +364,12 @@ footer{background:var(--green-950);color:var(--cream-200);padding:34px 24px 26px
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="eyebrow"><span class="rule"></span>Boutique en ligne · Livraison 69 wilayas</div>
-      <h1>Des montres qui portent <em>l'allure</em> d'une couronne.</h1>
-      <p class="lede">Noble Gallery sélectionne des montres et accessoires pour homme et femme, présentés comme des pièces de collection. Composez votre commande et recevez-la où que vous soyez en Algérie.</p>
+      <div class="eyebrow"><span class="rule"></span><span id="ctEyebrow">Boutique en ligne · Livraison 69 wilayas</span></div>
+      <h1 id="ctHeroTitle">Des montres qui portent <em>l'allure</em> d'une couronne.</h1>
+      <p class="lede" id="ctHeroSubtitle">Noble Gallery sélectionne des montres et accessoires pour homme et femme, présentés comme des pièces de collection. Composez votre commande et recevez-la où que vous soyez en Algérie.</p>
       <div class="hero-ctas">
-        <a href="#catalogue" class="btn-primary">Voir le catalogue</a>
-        <a href="#commander" class="btn-ghost">Commander via WhatsApp</a>
+        <a href="#catalogue" class="btn-primary" id="ctCtaPrimary">Voir le catalogue</a>
+        <a href="#commander" class="btn-ghost" id="ctCtaSecondary">Commander via WhatsApp</a>
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><b>69</b><span>wilayas livrées</span></div>
@@ -375,15 +388,15 @@ footer{background:var(--green-950);color:var(--cream-200);padding:34px 24px 26px
   <div class="trust-inner">
     <div class="trust-item">
       <div class="ic">✓</div>
-      <div><h4>Commande simple</h4><p>Choisissez vos articles, la commande part directement sur WhatsApp.</p></div>
+      <div><h4 id="ctTrust1Title">Commande simple</h4><p id="ctTrust1Desc">Choisissez vos articles, la commande part directement sur WhatsApp.</p></div>
     </div>
     <div class="trust-item">
       <div class="ic">⌂</div>
-      <div><h4>Livraison nationale</h4><p>Expédition vers les 69 wilayas d'Algérie.</p></div>
+      <div><h4 id="ctTrust2Title">Livraison nationale</h4><p id="ctTrust2Desc">Expédition vers les 69 wilayas d'Algérie.</p></div>
     </div>
     <div class="trust-item">
       <div class="ic">♛</div>
-      <div><h4>Pièces sélectionnées</h4><p>Montres et accessoires choisis pour homme et femme.</p></div>
+      <div><h4 id="ctTrust3Title">Pièces sélectionnées</h4><p id="ctTrust3Desc">Montres et accessoires choisis pour homme et femme.</p></div>
     </div>
   </div>
 </div>
@@ -392,8 +405,8 @@ footer{background:var(--green-950);color:var(--cream-200);padding:34px 24px 26px
   <div class="section-head">
     <div>
       <div class="eyebrow eyebrow-dark" style="margin-bottom:8px;"><span class="rule" style="background:var(--burgundy-700)"></span>Catalogue</div>
-      <h2>La collection Noble Gallery</h2>
-      <p>Ajoutez vos pièces au panier, ajustez les quantités puis validez votre commande.</p>
+      <h2 id="ctCatTitle">La collection Noble Gallery</h2>
+      <p id="ctCatDesc">Ajoutez vos pièces au panier, ajustez les quantités puis validez votre commande.</p>
     </div>
     <div class="filters" id="filters"></div>
   </div>
@@ -404,8 +417,8 @@ footer{background:var(--green-950);color:var(--cream-200);padding:34px 24px 26px
   <div class="wrap order-grid">
     <div>
       <div class="eyebrow" style="margin-bottom:8px;"><span class="rule"></span>Contact</div>
-      <h2>Finalisez votre commande</h2>
-      <p style="color:var(--cream-200);font-size:14.5px;max-width:48ch;">Remplissez vos coordonnées, le récapitulatif est envoyé automatiquement sur notre WhatsApp — nous vous confirmons le prix et le délai de livraison.</p>
+      <h2 id="ctOrdTitle">Finalisez votre commande</h2>
+      <p id="ctOrdDesc" style="color:var(--cream-200);font-size:14.5px;max-width:48ch;">Remplissez vos coordonnées, le récapitulatif est envoyé automatiquement sur notre WhatsApp — nous vous confirmons le prix et le délai de livraison.</p>
       <div class="contact-card">
         <div class="contact-row"><span class="ic">☎</span> WhatsApp : <span id="waDisplay">—</span></div>
         <div class="contact-row"><span class="ic">⌂</span> Livraison dans les 69 wilayas</div>
@@ -439,7 +452,7 @@ footer{background:var(--green-950);color:var(--cream-200);padding:34px 24px 26px
 <footer>
   <div class="footer-inner">
     <div class="fbrand">Noble <span style="color:var(--gold-400)">Gallery</span></div>
-    <small>© 2026 Noble Gallery · <a href="https://www.instagram.com/noble_gallery.dz" target="_blank" rel="noopener" style="color:var(--cream-200);">@noble_gallery.dz</a> · Livraison 69 wilayas</small>
+    <small id="ctFooterText">© 2026 Noble Gallery · <a href="https://www.instagram.com/noble_gallery.dz" target="_blank" rel="noopener" style="color:var(--cream-200);">@noble_gallery.dz</a> · Livraison 69 wilayas</small>
   </div>
 </footer>
 
@@ -475,6 +488,11 @@ footer{background:var(--green-950);color:var(--cream-200);padding:34px 24px 26px
     <button class="close-btn" onclick="closeAdmin()">✕</button>
   </div>
   <div class="admin-body">
+    <div class="admin-card" id="storageBanner" style="display:none;background:#fff7e6;border-color:var(--gold-500);">
+      <h3 style="color:var(--burgundy-700);">⚠ Mode brouillon local</h3>
+      <p class="hint" style="margin:0;">Ce site est hébergé sur un serveur statique (ex. Netlify), donc les modifications sont enregistrées seulement dans <b>ce navigateur</b>. Pour que vos clients les voient, cliquez sur <b>« Télécharger le site mis à jour »</b> en bas de page et réuploadez le fichier sur Netlify (remplacez l'ancien fichier).</p>
+    </div>
+
     <div class="admin-card">
       <h3>Réglages généraux</h3>
       <div class="admin-grid">
@@ -483,7 +501,35 @@ footer{background:var(--green-950);color:var(--cream-200);padding:34px 24px 26px
         <div class="field"><label>Nouveau mot de passe admin (laisser vide pour ne pas changer)</label><input id="settingPass" type="password"></div>
       </div>
       <button class="mini-btn save" onclick="saveSettings()">Enregistrer les réglages</button>
-      <p class="hint" style="margin-top:10px;">Ces informations sont partagées : toute modification est visible par tous les visiteurs du site.</p>
+    </div>
+
+    <div class="admin-card">
+      <h3>Textes de la page d'accueil</h3>
+      <p class="hint">Modifiez librement les textes affichés sur le site.</p>
+      <div class="field"><label>Bandeau (au-dessus du titre)</label><input id="cEyebrow"></div>
+      <div class="field"><label>Titre principal</label><input id="cHeroTitle"></div>
+      <div class="field"><label>Sous-titre</label><textarea id="cHeroSubtitle" rows="2"></textarea></div>
+      <div class="field-row">
+        <div class="field"><label>Texte bouton 1</label><input id="cCtaPrimary"></div>
+        <div class="field"><label>Texte bouton 2</label><input id="cCtaSecondary"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Titre section catalogue</label><input id="cCatTitle"></div>
+        <div class="field"><label>Description catalogue</label><input id="cCatDesc"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Titre section commande</label><input id="cOrdTitle"></div>
+        <div class="field"><label>Description commande</label><input id="cOrdDesc"></div>
+      </div>
+      <div class="admin-grid">
+        <div class="field"><label>Avantage 1 — titre</label><input id="cT1t"></div>
+        <div class="field"><label>Avantage 1 — texte</label><input id="cT1d"></div>
+        <div class="field"><label>Avantage 2 — titre</label><input id="cT2t"></div>
+        <div class="field"><label>Avantage 2 — texte</label><input id="cT2d"></div>
+        <div class="field"><label>Avantage 3 — titre</label><input id="cT3t"></div>
+        <div class="field"><label>Avantage 3 — texte</label><input id="cT3d"></div>
+      </div>
+      <button class="mini-btn save" onclick="saveContent()">Enregistrer les textes</button>
     </div>
 
     <div class="admin-card">
@@ -495,6 +541,7 @@ footer{background:var(--green-950);color:var(--cream-200);padding:34px 24px 26px
           <select id="newCat"><option value="femme">Femme</option><option value="homme">Homme</option><option value="accessoire">Accessoire</option></select>
         </div>
         <div class="field"><label>Stock</label><input id="newStock" type="number" placeholder="10"></div>
+        <div class="field"><label>Couleurs (séparées par une virgule, optionnel)</label><input id="newColors" placeholder="ex: Or, Argent, Rose gold"></div>
         <div class="field"><label>Photo</label><input id="newImg" type="file" accept="image/*"></div>
       </div>
       <button class="mini-btn save" onclick="addProduct()">Ajouter le produit</button>
@@ -502,10 +549,13 @@ footer{background:var(--green-950);color:var(--cream-200);padding:34px 24px 26px
 
     <div class="admin-card">
       <h3>Produits (<span id="prodCount">0</span>)</h3>
-      <div class="product-row row-head">
-        <span>Photo</span><span>Nom</span><span>Prix</span><span>Stock</span><span>Catégorie</span><span>Actif</span><span>Actions</span>
-      </div>
       <div id="adminProductList"></div>
+    </div>
+
+    <div class="admin-card" style="text-align:center;">
+      <h3>Publier vos changements</h3>
+      <p class="hint">Téléchargez le site avec vos modifications intégrées, puis réuploadez ce fichier sur Netlify pour que tous vos visiteurs voient les mises à jour.</p>
+      <button class="btn-primary" onclick="exportSite()">📥 Télécharger le site mis à jour</button>
     </div>
   </div>
 </div>
@@ -523,34 +573,85 @@ const IMAGES = {
 };
 
 const DEFAULT_PRODUCTS = [
-  {id:'p1', name:"Montre Femme IEKE — Cadran Ovale Bordeaux & Or", price:2500, category:'femme', stock:8, active:true, img:IMAGES.p1b},
-  {id:'p2', name:"Montre Femme IEKE — Carrée Dorée Cadran Perle", price:2600, category:'femme', stock:6, active:true, img:IMAGES.p2},
-  {id:'p3', name:"Montre Femme IEKE — Carrée Argentée Cadran Bordeaux", price:2500, category:'femme', stock:5, active:true, img:IMAGES.p3},
-  {id:'p4', name:"Montre Femme IEKE — Ovale Or Chiffres Romains", price:2700, category:'femme', stock:7, active:true, img:IMAGES.p4}
+  {id:'p1', name:"Montre Femme IEKE — Cadran Ovale Bordeaux & Or", price:2500, category:'femme', stock:8, active:true, colors:[], img:IMAGES.p1b},
+  {id:'p2', name:"Montre Femme IEKE — Carrée Dorée Cadran Perle", price:2600, category:'femme', stock:6, active:true, colors:[], img:IMAGES.p2},
+  {id:'p3', name:"Montre Femme IEKE — Carrée Argentée Cadran Bordeaux", price:2500, category:'femme', stock:5, active:true, colors:[], img:IMAGES.p3},
+  {id:'p4', name:"Montre Femme IEKE — Ovale Or Chiffres Romains", price:2700, category:'femme', stock:7, active:true, colors:[], img:IMAGES.p4}
 ];
 const DEFAULT_SETTINGS = { wa:'213795579850', name:'Noble Gallery', pass:'noble2026' };
+const DEFAULT_CONTENT = {
+  eyebrow: "Boutique en ligne · Livraison 69 wilayas",
+  heroTitle: "Des montres qui portent l'allure d'une couronne.",
+  heroSubtitle: "Noble Gallery sélectionne des montres et accessoires pour homme et femme, présentés comme des pièces de collection. Composez votre commande et recevez-la où que vous soyez en Algérie.",
+  ctaPrimary: "Voir le catalogue",
+  ctaSecondary: "Commander via WhatsApp",
+  catTitle: "La collection Noble Gallery",
+  catDesc: "Ajoutez vos pièces au panier, ajustez les quantités puis validez votre commande.",
+  ordTitle: "Finalisez votre commande",
+  ordDesc: "Remplissez vos coordonnées, le récapitulatif est envoyé automatiquement sur notre WhatsApp — nous vous confirmons le prix et le délai de livraison.",
+  t1t: "Commande simple", t1d: "Choisissez vos articles, la commande part directement sur WhatsApp.",
+  t2t: "Livraison nationale", t2d: "Expédition vers les 69 wilayas d'Algérie.",
+  t3t: "Pièces sélectionnées", t3d: "Montres et accessoires choisis pour homme et femme."
+};
 
 let PRODUCTS = [];
 let SETTINGS = {...DEFAULT_SETTINGS};
-let CART = {}; // id -> qty
+let CONTENT = {...DEFAULT_CONTENT};
+let CART = {}; // compositeKey ("id" or "id::color") -> {id, qty, color}
+let selectedColor = {}; // id -> color
 let currentFilter = 'tout';
 let isAdmin = false;
+let storageMode = 'cloud'; // 'cloud' or 'local'
+
+/* ---------- Storage layer: window.storage with localStorage fallback ---------- */
+async function storageGet(key){
+  try{
+    if(window.storage){
+      const r = await window.storage.get(key, true);
+      return r ? r.value : null;
+    }
+    throw new Error('no window.storage');
+  }catch(e){
+    storageMode = 'local';
+    try{ return window.localStorage.getItem('ng_'+key); }catch(e2){ return null; }
+  }
+}
+async function storageSet(key, value){
+  try{
+    if(window.storage){
+      await window.storage.set(key, value, true);
+      return;
+    }
+    throw new Error('no window.storage');
+  }catch(e){
+    storageMode = 'local';
+    try{ window.localStorage.setItem('ng_'+key, value); }catch(e2){}
+  }
+}
 
 async function loadData(){
   try{
-    const p = await window.storage.get('ng_catalog', true);
-    PRODUCTS = p ? JSON.parse(p.value) : DEFAULT_PRODUCTS;
-    if(!p){ await window.storage.set('ng_catalog', JSON.stringify(DEFAULT_PRODUCTS), true); }
-  }catch(e){ PRODUCTS = DEFAULT_PRODUCTS; }
+    const p = await storageGet('ng_catalog');
+    PRODUCTS = p ? JSON.parse(p) : DEFAULT_PRODUCTS.map(p=>({...p}));
+    if(!p){ await storageSet('ng_catalog', JSON.stringify(PRODUCTS)); }
+  }catch(e){ PRODUCTS = DEFAULT_PRODUCTS.map(p=>({...p})); }
   try{
-    const s = await window.storage.get('ng_settings', true);
-    SETTINGS = s ? JSON.parse(s.value) : DEFAULT_SETTINGS;
-    if(!s){ await window.storage.set('ng_settings', JSON.stringify(DEFAULT_SETTINGS), true); }
-  }catch(e){ SETTINGS = DEFAULT_SETTINGS; }
+    const s = await storageGet('ng_settings');
+    SETTINGS = s ? JSON.parse(s) : {...DEFAULT_SETTINGS};
+    if(!s){ await storageSet('ng_settings', JSON.stringify(SETTINGS)); }
+  }catch(e){ SETTINGS = {...DEFAULT_SETTINGS}; }
+  try{
+    const c = await storageGet('ng_content');
+    CONTENT = c ? {...DEFAULT_CONTENT, ...JSON.parse(c)} : {...DEFAULT_CONTENT};
+    if(!c){ await storageSet('ng_content', JSON.stringify(CONTENT)); }
+  }catch(e){ CONTENT = {...DEFAULT_CONTENT}; }
   renderAll();
+  const banner = document.getElementById('storageBanner');
+  if(banner) banner.style.display = (storageMode === 'local') ? 'block' : 'none';
 }
 
 function renderAll(){
+  applyContent();
   renderFilters();
   renderGrid();
   renderCart();
@@ -558,6 +659,20 @@ function renderAll(){
   document.getElementById('statCount').textContent = PRODUCTS.filter(p=>p.active).length;
   const featured = PRODUCTS.find(p=>p.active) || PRODUCTS[0];
   if(featured) document.getElementById('heroImg').src = featured.img;
+}
+
+function applyContent(){
+  const map = {
+    ctEyebrow:'eyebrow', ctHeroTitle:'heroTitle', ctHeroSubtitle:'heroSubtitle',
+    ctCtaPrimary:'ctaPrimary', ctCtaSecondary:'ctaSecondary',
+    ctCatTitle:'catTitle', ctCatDesc:'catDesc', ctOrdTitle:'ordTitle', ctOrdDesc:'ordDesc',
+    ctTrust1Title:'t1t', ctTrust1Desc:'t1d', ctTrust2Title:'t2t', ctTrust2Desc:'t2d',
+    ctTrust3Title:'t3t', ctTrust3Desc:'t3d'
+  };
+  for(const [elId, key] of Object.entries(map)){
+    const el = document.getElementById(elId);
+    if(el && CONTENT[key] != null) el.textContent = CONTENT[key];
+  }
 }
 
 function renderFilters(){
@@ -574,7 +689,12 @@ function renderGrid(){
   if(list.length===0){ el.innerHTML = '<p style="color:var(--ink-500);">Aucun produit disponible dans cette catégorie pour le moment.</p>'; return; }
   el.innerHTML = list.map(p => {
     const stockLabel = p.stock<=0 ? 'Épuisé' : (p.stock<=3 ? `Plus que ${p.stock}` : null);
-    const qty = CART[p.id] || 1;
+    const cartKey = p.id + (p.colors && p.colors.length ? '::' + (selectedColor[p.id]||p.colors[0]) : '');
+    const qty = (CART[cartKey] && CART[cartKey].qty) || 1;
+    const colorsHtml = (p.colors && p.colors.length) ? `
+      <div class="color-swatches">
+        ${p.colors.map(c => `<button type="button" class="color-chip ${((selectedColor[p.id]||p.colors[0])===c)?'selected':''}" onclick="selectColor('${p.id}','${escapeHtml(c)}')">${escapeHtml(c)}</button>`).join('')}
+      </div>` : '';
     return `
     <div class="card">
       <div class="card-media">
@@ -584,6 +704,7 @@ function renderGrid(){
       <div class="card-body">
         <span class="card-cat">${p.category}</span>
         <p class="card-title">${escapeHtml(p.name)}</p>
+        ${colorsHtml}
         <p class="card-price">${p.price.toLocaleString('fr-FR')} <span>DA</span></p>
         <div class="card-actions">
           <div class="qty-stepper">
@@ -596,6 +717,11 @@ function renderGrid(){
       </div>
     </div>`;
   }).join('');
+}
+
+function selectColor(id, color){
+  selectedColor[id] = color;
+  renderGrid();
 }
 
 function stepQty(id, delta){
@@ -612,17 +738,21 @@ function addToCart(id){
   const qty = parseInt(input.value||'1');
   const prod = PRODUCTS.find(p=>p.id===id);
   if(!prod || prod.stock<=0) return;
-  CART[id] = Math.min((CART[id]||0) + qty, prod.stock);
+  const color = (prod.colors && prod.colors.length) ? (selectedColor[id]||prod.colors[0]) : null;
+  const cartKey = id + (color ? '::' + color : '');
+  const existingQty = (CART[cartKey] && CART[cartKey].qty) || 0;
+  const newQty = Math.min(existingQty + qty, prod.stock);
+  CART[cartKey] = {id, qty:newQty, color};
   renderCart();
   showToast(`${prod.name} ajouté au panier`);
 }
 
-function removeFromCart(id){ delete CART[id]; renderCart(); }
+function removeFromCart(cartKey){ delete CART[cartKey]; renderCart(); renderGrid(); }
 
 function cartItems(){
-  return Object.entries(CART).map(([id,qty])=>{
-    const p = PRODUCTS.find(pr=>pr.id===id);
-    return p ? {...p, qty} : null;
+  return Object.entries(CART).map(([key, entry])=>{
+    const p = PRODUCTS.find(pr=>pr.id===entry.id);
+    return p ? {...p, qty:entry.qty, color:entry.color, cartKey:key} : null;
   }).filter(Boolean);
 }
 
@@ -637,10 +767,10 @@ function renderCart(){
     <div class="cart-line">
       <img src="${i.img}" alt="">
       <div style="flex:1;">
-        <div class="name">${escapeHtml(i.name)}</div>
+        <div class="name">${escapeHtml(i.name)}${i.color?` — <span style="color:var(--ink-500);">${escapeHtml(i.color)}</span>`:''}</div>
         <div class="meta">${i.qty} × ${i.price.toLocaleString('fr-FR')} DA</div>
       </div>
-      <button class="rm" onclick="removeFromCart('${i.id}');renderGrid();">Retirer</button>
+      <button class="rm" onclick="removeFromCart('${i.cartKey}')">Retirer</button>
     </div>`).join('') : '<div class="cart-empty">Votre panier est vide.</div>';
 
   document.getElementById('cartListDrawer').innerHTML = listHtml;
@@ -666,7 +796,7 @@ function sendOrder(){
     return;
   }
   let msg = `Nouvelle commande — Noble Gallery\n\n`;
-  items.forEach(i => { msg += `• ${i.name} × ${i.qty} — ${(i.qty*i.price).toLocaleString('fr-FR')} DA\n`; });
+  items.forEach(i => { msg += `• ${i.name}${i.color?` (${i.color})`:''} × ${i.qty} — ${(i.qty*i.price).toLocaleString('fr-FR')} DA\n`; });
   const total = items.reduce((s,i)=>s+i.qty*i.price,0);
   msg += `\nTotal : ${total.toLocaleString('fr-FR')} DA\n\n`;
   msg += `Nom : ${name}\nTéléphone : ${phone}\nWilaya : ${wilaya}\nAdresse : ${address}\n`;
@@ -702,6 +832,23 @@ function openAdmin(){
   document.getElementById('settingWa').value = SETTINGS.wa;
   document.getElementById('settingName').value = SETTINGS.name;
   document.getElementById('settingPass').value = '';
+  document.getElementById('cEyebrow').value = CONTENT.eyebrow;
+  document.getElementById('cHeroTitle').value = CONTENT.heroTitle;
+  document.getElementById('cHeroSubtitle').value = CONTENT.heroSubtitle;
+  document.getElementById('cCtaPrimary').value = CONTENT.ctaPrimary;
+  document.getElementById('cCtaSecondary').value = CONTENT.ctaSecondary;
+  document.getElementById('cCatTitle').value = CONTENT.catTitle;
+  document.getElementById('cCatDesc').value = CONTENT.catDesc;
+  document.getElementById('cOrdTitle').value = CONTENT.ordTitle;
+  document.getElementById('cOrdDesc').value = CONTENT.ordDesc;
+  document.getElementById('cT1t').value = CONTENT.t1t;
+  document.getElementById('cT1d').value = CONTENT.t1d;
+  document.getElementById('cT2t').value = CONTENT.t2t;
+  document.getElementById('cT2d').value = CONTENT.t2d;
+  document.getElementById('cT3t').value = CONTENT.t3t;
+  document.getElementById('cT3d').value = CONTENT.t3d;
+  const banner = document.getElementById('storageBanner');
+  if(banner) banner.style.display = (storageMode === 'local') ? 'block' : 'none';
   renderAdminProducts();
 }
 function closeAdmin(){ document.getElementById('adminOverlay').classList.remove('open'); }
@@ -713,38 +860,68 @@ async function saveSettings(){
   if(wa) SETTINGS.wa = wa.replace(/[^0-9]/g,'');
   if(name) SETTINGS.name = name;
   if(pass) SETTINGS.pass = pass;
-  await window.storage.set('ng_settings', JSON.stringify(SETTINGS), true);
+  await storageSet('ng_settings', JSON.stringify(SETTINGS));
   showToast('Réglages enregistrés.');
   renderAll();
+}
+
+async function saveContent(){
+  CONTENT.eyebrow = document.getElementById('cEyebrow').value.trim() || CONTENT.eyebrow;
+  CONTENT.heroTitle = document.getElementById('cHeroTitle').value.trim() || CONTENT.heroTitle;
+  CONTENT.heroSubtitle = document.getElementById('cHeroSubtitle').value.trim() || CONTENT.heroSubtitle;
+  CONTENT.ctaPrimary = document.getElementById('cCtaPrimary').value.trim() || CONTENT.ctaPrimary;
+  CONTENT.ctaSecondary = document.getElementById('cCtaSecondary').value.trim() || CONTENT.ctaSecondary;
+  CONTENT.catTitle = document.getElementById('cCatTitle').value.trim() || CONTENT.catTitle;
+  CONTENT.catDesc = document.getElementById('cCatDesc').value.trim() || CONTENT.catDesc;
+  CONTENT.ordTitle = document.getElementById('cOrdTitle').value.trim() || CONTENT.ordTitle;
+  CONTENT.ordDesc = document.getElementById('cOrdDesc').value.trim() || CONTENT.ordDesc;
+  CONTENT.t1t = document.getElementById('cT1t').value.trim() || CONTENT.t1t;
+  CONTENT.t1d = document.getElementById('cT1d').value.trim() || CONTENT.t1d;
+  CONTENT.t2t = document.getElementById('cT2t').value.trim() || CONTENT.t2t;
+  CONTENT.t2d = document.getElementById('cT2d').value.trim() || CONTENT.t2d;
+  CONTENT.t3t = document.getElementById('cT3t').value.trim() || CONTENT.t3t;
+  CONTENT.t3d = document.getElementById('cT3d').value.trim() || CONTENT.t3d;
+  await storageSet('ng_content', JSON.stringify(CONTENT));
+  applyContent();
+  showToast('Textes mis à jour.');
 }
 
 function renderAdminProducts(){
   document.getElementById('prodCount').textContent = PRODUCTS.length;
   document.getElementById('adminProductList').innerHTML = PRODUCTS.map(p => `
-    <div class="product-row" id="row-${p.id}">
-      <img src="${p.img}" alt="">
-      <input value="${escapeHtml(p.name)}" id="name-${p.id}">
-      <input type="number" value="${p.price}" id="price-${p.id}">
-      <input type="number" value="${p.stock}" id="stock-${p.id}">
-      <select id="cat-${p.id}">
-        <option value="femme" ${p.category==='femme'?'selected':''}>Femme</option>
-        <option value="homme" ${p.category==='homme'?'selected':''}>Homme</option>
-        <option value="accessoire" ${p.category==='accessoire'?'selected':''}>Accessoire</option>
-      </select>
-      <select id="active-${p.id}">
-        <option value="1" ${p.active?'selected':''}>Oui</option>
-        <option value="0" ${!p.active?'selected':''}>Non</option>
-      </select>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+    <div class="pca" id="row-${p.id}">
+      <div class="pca-top">
+        <img src="${p.img}" alt="">
+        <div class="pca-fields">
+          <div class="f"><label>Nom</label><input value="${escapeHtml(p.name)}" id="name-${p.id}"></div>
+          <div class="f"><label>Prix (DA)</label><input type="number" value="${p.price}" id="price-${p.id}"></div>
+          <div class="f"><label>Stock</label><input type="number" value="${p.stock}" id="stock-${p.id}"></div>
+          <div class="f"><label>Catégorie</label>
+            <select id="cat-${p.id}">
+              <option value="femme" ${p.category==='femme'?'selected':''}>Femme</option>
+              <option value="homme" ${p.category==='homme'?'selected':''}>Homme</option>
+              <option value="accessoire" ${p.category==='accessoire'?'selected':''}>Accessoire</option>
+            </select>
+          </div>
+          <div class="f"><label>Actif</label>
+            <select id="active-${p.id}">
+              <option value="1" ${p.active?'selected':''}>Oui</option>
+              <option value="0" ${!p.active?'selected':''}>Non</option>
+            </select>
+          </div>
+          <div class="f"><label>Couleurs (séparées par une virgule)</label><input value="${escapeHtml((p.colors||[]).join(', '))}" id="colors-${p.id}" placeholder="ex: Or, Argent"></div>
+        </div>
+      </div>
+      <div class="pca-actions">
         <button class="mini-btn save" onclick="saveProduct('${p.id}')">Enregistrer</button>
-        <button class="mini-btn del" onclick="deleteProduct('${p.id}')">Suppr.</button>
+        <button class="mini-btn del" onclick="deleteProduct('${p.id}')">Supprimer</button>
       </div>
     </div>
   `).join('');
 }
 
 async function persistProducts(){
-  await window.storage.set('ng_catalog', JSON.stringify(PRODUCTS), true);
+  await storageSet('ng_catalog', JSON.stringify(PRODUCTS));
 }
 
 async function saveProduct(id){
@@ -755,6 +932,8 @@ async function saveProduct(id){
   p.stock = parseInt(document.getElementById('stock-'+id).value) || 0;
   p.category = document.getElementById('cat-'+id).value;
   p.active = document.getElementById('active-'+id).value === '1';
+  const colorsRaw = document.getElementById('colors-'+id).value.trim();
+  p.colors = colorsRaw ? colorsRaw.split(',').map(c=>c.trim()).filter(Boolean) : [];
   await persistProducts();
   renderAll();
   renderAdminProducts();
@@ -784,6 +963,8 @@ async function addProduct(){
   const price = parseFloat(document.getElementById('newPrice').value);
   const cat = document.getElementById('newCat').value;
   const stock = parseInt(document.getElementById('newStock').value) || 0;
+  const colorsRaw = document.getElementById('newColors').value.trim();
+  const colors = colorsRaw ? colorsRaw.split(',').map(c=>c.trim()).filter(Boolean) : [];
   const fileInput = document.getElementById('newImg');
   if(!name || !price){ showToast('Nom et prix requis.'); return; }
   let img = IMAGES.p1;
@@ -791,18 +972,45 @@ async function addProduct(){
     try{ img = await fileToDataUrl(fileInput.files[0]); }catch(e){}
   }
   const id = 'p' + Date.now();
-  PRODUCTS.push({id, name, price, category:cat, stock, active:true, img});
+  PRODUCTS.push({id, name, price, category:cat, stock, active:true, colors, img});
   await persistProducts();
   document.getElementById('newName').value='';
   document.getElementById('newPrice').value='';
   document.getElementById('newStock').value='';
+  document.getElementById('newColors').value='';
   fileInput.value='';
   renderAll();
   renderAdminProducts();
   showToast('Produit ajouté.');
 }
 
+/* ---------- Export updated site for redeploy ---------- */
+function exportSite(){
+  try{
+    const scripts = document.getElementsByTagName('script');
+    const mainScript = scripts[scripts.length-1];
+    let code = mainScript.textContent;
+    code = code.replace(/const DEFAULT_PRODUCTS = \[[\s\S]*?\];/, 'const DEFAULT_PRODUCTS = ' + JSON.stringify(PRODUCTS) + ';');
+    code = code.replace(/const DEFAULT_SETTINGS = \{[\s\S]*?\};/, 'const DEFAULT_SETTINGS = ' + JSON.stringify(SETTINGS) + ';');
+    code = code.replace(/const DEFAULT_CONTENT = \{[\s\S]*?\};/, 'const DEFAULT_CONTENT = ' + JSON.stringify(CONTENT) + ';');
+    mainScript.textContent = code;
+    const htmlOut = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const blob = new Blob([htmlOut], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'noble-gallery.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('Fichier téléchargé — réuploadez-le sur Netlify.');
+  }catch(e){
+    showToast('Erreur lors du téléchargement.');
+  }
+}
+
 loadData();
+
 </script>
 </body>
 </html>
